@@ -39,9 +39,9 @@
                                     </td>
                                     <td>
                                     <div class="d-flex justify-content-center"> <!-- Menambahkan div flex untuk mengatur posisi -->
-                                    <a href="{{ route('users.show', $user->id) }}" class="btn btn-sm btn-info px-3 py-2 mx-2">Detail</a>
-                                    <a href="{{ route('user.create', $user->id) }}" class="btn btn-sm btn-secondary px-3 py-2 mx-2">Edit</a>
-                                        <form action="#" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus pengguna ini?');">
+                                    <a href="{{ route('users.show', $user['id']) }}" class="btn btn-sm btn-info px-3 py-2 mx-2">Detail</a>
+                                    <a href="{{ route('user.edit', $user['id']) }}" class="btn btn-sm btn-secondary px-3 py-2 mx-2">Edit</a>
+                                        <form action="{{ route('user.destroy', $user['id']) }}" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus pengguna ini?');">
                                              @csrf
                                             @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger px-3 py-1 mx-2">Delete</button>
@@ -55,7 +55,7 @@
                     </table>
 
                     <div class="mt-3">
-                    <a href="{{ route('user.create') }}" class="btn btn-primary mb-3">Tambah Pengguna Baru</a>
+                    <a href="{{ route('user.create') }}" class="btn btn-primary px-3 py-3 mb-3">Tambah Pengguna Baru</a>
                 </div>
                 </div>
             </div>

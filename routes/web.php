@@ -18,3 +18,6 @@ Route::post('/user/store', [UserController::class, 'store'])->name('user.store')
 Route::get('/users', [UserController::class, 'index'])->name('user.index');
 Route::get('/show/{id}', [UserController::class, 'show'])->name('users.show');
 Route::get('/profile/{id}', [UserController::class, 'show'])->name('user.profile');
+Route::put('/user/{id}', [UserController::class, 'update'])->name('user.update');
+Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
+Route::delete('/users', [UserController::class, 'destroy'])->name('user.destroy');
