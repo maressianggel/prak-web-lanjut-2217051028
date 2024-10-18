@@ -60,7 +60,12 @@
         .form-group p {
             margin-bottom: 0; /* Remove bottom margin for error messages */
         }
-
+        
+        .custom-file-input {
+        width: 150px;  /* Set the width */
+        padding: 5px;  /* Adjust padding to make the button smaller */
+        font-size: 12px;  /* Adjust font size if needed */
+        }
     </style>
 </head>
 <body>
@@ -75,7 +80,7 @@
                    
                     
                     <div class="card-body">
-                        <form action="{{ route('user.store') }}" method="POST" novalidate>
+                        <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="nama">Nama:</label>
@@ -103,6 +108,15 @@
                                     <p class="text-red-500 text-xs mt-1 text-left">{{ $msg }}</p>
                                 @endforeach
                             </div>
+
+                            <div class="form-group">
+                                <label for="foto">Foto:</label>
+                                <input type="file" id="foto" name="foto" class="form-control">
+                                @foreach($errors->get('foto') as $msg)
+                                    <p class="text-red-500 text-xs mt-1 text-left">{{ $msg }}</p>
+                                @endforeach
+                            </div>
+
                             <button type="submit" class="btn btn-primary btn-block">Submit</button>
                         </form>
                    

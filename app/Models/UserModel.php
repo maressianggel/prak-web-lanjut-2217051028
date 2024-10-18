@@ -13,8 +13,7 @@ class UserModel extends Model
         'nama',
         'npm',
         'kelas_id',
-    
-
+        'foto',
     ];
 
     protected $table = 'user';
@@ -24,11 +23,18 @@ class UserModel extends Model
         return $this->belongsTo(Kelas::class, 'kelas_id');
     }
 
-    public function getUser(){
-
-        return $this->join('kelas', 'kelas.id', '=', 
-'user.kelas_id')->select('user.*', 'kelas.nama_kelas as 
-nama_kelas')->get();
+    public function getUser($id = null){
+        if($id != null) {
+            return $this->join('kelas', 'kelas.id', '=', 'user.kelas_id')
+                    ->select('user.*', 'kelas.nama_kelas as nama_kelas')
+                    ->where('user.id', $id)
+                    ->first();
+        } else {
+            return $this->join('kelas', 'kelas.id', '=', 'user.kelas_id') // Ganti 'user' menjadi 'users'
+                        ->select('user.*', 'kelas.nama_kelas as nama_kelas')
+                        ->get(); // Menambahkan untuk mengembalikan semua pengguna
+        }
+        
     }
         
 }
