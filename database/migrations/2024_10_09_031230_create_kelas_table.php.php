@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kelas', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama_kelas');
-            $table->foreignId('kelas_id')->constrained()->onDelete('cascade'); // Pastikan kolom ini ada
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('kelas')) {
+            Schema::create('kelas', function (Blueprint $table) {
+                $table->bigIncrements('id');
+                $table->string('nama_kelas');
+                $table->unsignedBigInteger('kelas_id');
+                $table->timestamps();
+            });
+        }
     }
 
     /**

@@ -90,10 +90,10 @@
                                 @endforeach
                             </div>
                             <div class="form-group">
-                                <label for="npm">NPM:</label>
-                                <input type="text" id="npm" name="npm" class="form-control" placeholder="Masukkan NPM" required>
-                                @foreach($errors->get('npm') as $msg)
-                                    <p class="text-red-500 text-xs mt-1 text-left">{{$msg}}</p>
+                                <label for="semester">Semester:</label>
+                                <input type="number" id="semester" name="semester" class="form-control" placeholder="Masukkan semester (1-14)" min="1" max="14" required>
+                                @foreach($errors->get('semester') as $msg)
+                                    <p class="text-red-500 text-xs mt-1 text-left">{{ $msg }}</p>
                                 @endforeach
                             </div>
                             <div class="form-group">
@@ -105,6 +105,32 @@
                                     @endforeach
                                 </select>
                                 @foreach($errors->get('kelas_id') as $msg)
+                                    <p class="text-red-500 text-xs mt-1 text-left">{{ $msg }}</p>
+                                @endforeach
+                            <div class="form-group">
+                            <label for="fakultas_id">Fakultas:</label>
+                            <!-- Dropdown untuk memilih fakultas -->
+                            <select name="fakultas_id" id="fakultas_id" class="form-control" required>
+                            <option value="1">MIPA</option>
+                            <option value="2">FKIP</option>
+                            <option value="3">FK</option>
+                        
+                            </select>
+                                @foreach($errors->get('fakultas_id') as $msg)
+                                    <p class="text-red-500 text-xs mt-1 text-left">{{ $msg }}</p>
+                                @endforeach
+                            </div>
+                            <div class="form-group">
+                                <label for="jurusan">Jurusan:</label>
+                                <select name="jurusan" id="jurusan" class="form-control" required>
+                                    <option value="">Pilih Jurusan</option>
+                                    <option value="fisika">Fisika</option>
+                                    <option value="kimia">Kimia</option>
+                                    <option value="biologi">Biologi</option>
+                                    <option value="matematika">Matematika</option>
+                                    <option value="ilmu komputer">Ilmu Komputer</option>
+                                </select>
+                                @foreach($errors->get('jurusan') as $msg)
                                     <p class="text-red-500 text-xs mt-1 text-left">{{ $msg }}</p>
                                 @endforeach
                             </div>

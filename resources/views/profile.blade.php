@@ -30,17 +30,28 @@
         </div>
         <div class="space-y-2">
             <!-- Menampilkan data dari $user -->
+             <td>Nama</td>
             <div class="bg-purple-200 py-2 px-6 rounded-md text-black font-semibold">
                 {{ $user->nama }} <!-- Menggunakan variabel $user -->
             </div>
+            <td>Semester</td>
             <div class="bg-purple-200 py-2 px-6 rounded-md text-black font-semibold">
-                {{ $user->npm }} <!-- Menggunakan variabel $user -->
+                {{ $user->semester }} <!-- Menggunakan variabel $user -->
             </div>
+            <td>Kelas</td>
             <div class="bg-purple-200 py-2 px-6 rounded-md text-black font-semibold">
                 {{ $user->nama_kelas ?? 'Kelas tidak ditemukan' }} <!-- Nilai default jika nama_kelas null -->
             </div>
+            <td>Fakultas</td>
+            <div class="bg-purple-200 py-2 px-6 rounded-md text-black font-semibold">
+                {{ $user->fakultas_id }} <!-- Menggunakan variabel $user -->
+            </div>
+            <td>Jurusan</td>
+            <div class="bg-purple-200 py-2 px-6 rounded-md text-black font-semibold">
+                {{ $user->jurusan }} <!-- Menggunakan variabel $user -->
+            </div>
+            
         </div>
-    </div>
 
 </body>
 </html>
